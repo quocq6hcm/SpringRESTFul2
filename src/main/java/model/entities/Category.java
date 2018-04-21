@@ -1,5 +1,6 @@
 package model.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Fetch;
 
 import javax.persistence.*;
@@ -48,7 +49,7 @@ public class Category
 		return Objects.hash(id, name);
 	}
 
-
+	@JsonIgnore
 	@OneToMany(mappedBy = "categoryByCategoryId", fetch = FetchType.LAZY)
 	public Collection<Book>
 	getBooksById()
